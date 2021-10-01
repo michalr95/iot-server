@@ -1,7 +1,3 @@
-from .builtin_intents import welcome
-from .lights import start_effect, stop_effect
-from .sensor_readings import sensor_readings
-
 from iot_app.assets.web_assets import pi_img
 
 from flask_ask.models import _Response
@@ -18,3 +14,7 @@ def with_card(response: _Response, card_text: str, card_img=pi_img):
     """
     card_title = render_template('card_title_pi')
     return response.standard_card(card_title, card_text, card_img)
+
+from .builtin_intents import welcome
+from .lights import start_effect, stop_effect
+from .sensor_readings import sensor_readings
