@@ -1,16 +1,9 @@
 from flask import render_template
-from flask_ask import question, statement
-from iot_app.assets.web_assets import *
+from flask_ask import statement
+from iot_app.assets.web_assets import light_img
 from iot_app.iot.lights import LightManager, Light
-from iot_app.db.sensor_readings import get_last_temp, get_last_humidity
 
 from typing import Optional, List
-
-
-# Slot mappings
-class SensorType:
-    HUMIDITY = 'humidity'
-    TEMPERATURE = 'temperature'
 
 
 class Room:
@@ -38,27 +31,6 @@ class LightCheckResult:
 
 
 lm = LightManager.instance()
-
-
-def welcome():
-    card_title = render_template('card_title_pi')
-    question_text = render_template('welcome')
-    return question(question_text).standard_card(card_title, question_text, pi_img)
-
-
-def sensor_readings(sensor):
-    card_title = render_template('card_title_pi')
-
-    if sensor is None:
-        answer = render_template('temp_and_humidity').format(get_last_temp(), get_last_humidity())
-        return statement(answer).standard_card(card_title, answer, pi_img)
-
-    if sensor == SensorType.TEMPERATURE:
-        answer = render_template('temp').format(get_last_temp())
-        return statement(answer).standard_card(card_title, answer, temp_img)
-
-    answer = render_template('humidity').format(get_last_humidity())
-    return statement(answer).standard_card(card_title, answer, card_img)
 
 
 def start_effect(room, effect):

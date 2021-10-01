@@ -8,6 +8,22 @@ card_title_pi: Raspberry Pi
 card_title_lights: Lights
 card_title_sensor: Your IoT
 
+help_speech: >
+  You can ask about the latest sensor readings with "give me sensor readings".
+  Or ask for individual readings, for example, "what's the temperature".
+  You can turn on a light effect with, for example, "do the disco effect in my bedroom".
+  Then stop with "Stop the disco lights". Currently-available effects are:
+  Police. LSD. Random. Disco.
+help_card_text: |
+  Try:
+    - "Give me sensor readings"
+    - "What's the temperature?"
+    - "What's the humidity?"
+    - "Start <effect name>", optionally with "in <room name>"
+    - "Stop <effect name>", or simply,
+    - "Stop lights"
+
+
 temp_and_humidity:
     Currently, it's {0} degrees, and humidity is at {1}%
 
@@ -28,4 +44,6 @@ effect_stop_card: Effect stopped
 no_lights: Sorry. No lights are currently connected.
 no_default_lights: Sorry. No default lights are currently connected.
 no_such_light: I'm afraid the light called {} is not available
+
+
 
