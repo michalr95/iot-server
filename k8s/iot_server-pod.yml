@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: iot_server-pod
+  labels:
+    component: iot_server
+spec:
+  containers:
+    -name: iot_server
+    image: iot-proj_app
+    ports:
+      - containerPort: 5000
