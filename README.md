@@ -27,3 +27,5 @@ Override defaults if needed
 Note that compose is configured to mount volume to a directory on host's filesystem such that app logs are available from the host.
 Make sure that directory may be shared with Linux containers - https://docs.docker.com/docker-for-mac/#file-sharing
 
+Common issues:
+- Flask server docker build fails at `pip install -r requirements.txt` step due to timeout - add http_proxy and https_proxy in Dockerfile ENV entries and set appropriately
